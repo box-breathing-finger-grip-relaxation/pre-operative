@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="id"></html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relaksasi Pre-Operatif</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Nunito:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Nunito', sans-serif;
+    }
+    
+    .font-elegant {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+    
+    @keyframes breathe-in {
+      0% { transform: scale(0.6); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes breathe-hold {
+      0%, 100% { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes breathe-out {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.6); opacity: 0.5; }
+    }
+    
+    .breathing-circle {
+      transition: all 0.3s ease;
+    }
+    
+    .breathing-inhale {
+      animation: breathe-in 4s ease-in-out forwards;
+    }
+    
+    .breathing-hold-in, .breathing-hold-out {
+      animation: breathe-hold 4s ease-in-out forwards;
+    }
+    
+    .breathing-exhale {
+      animation: breathe-out 4s ease-in-out forwards;
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .bg-orb {
+      animation: pulse-soft 4s ease-in-out infinite;
+    }
+    
+    .finger-active {
+      filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8));
+      transform: scale(1.1);
+    }
+    
+    .finger-btn {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .finger-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .finger-btn.active {
+      transform: scale(0.95);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .progress-ring {
+      transition: stroke-dashoffset 0.1s linear;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #8B5CF6, #6366F1);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+    
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .section-transition {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #EDE9FE;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #8B5CF6, #6366F1);
+      border-radius: 4px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-slate-50 via-violet-50 to-indigo-100 overflow-auto"><!-- Background Decorative Elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+   <div class="absolute top-20 left-10 w-72 h-72 bg-violet-300 rounded-full mix-blend-multiply filter blur-3xl bg-orb"></div>
+   <div class="absolute top-40 right-20 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl bg-orb" style="animation-delay: 2s;"></div>
+   <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl bg-orb" style="animation-delay: 4s;"></div>
+  </div>
+  <div class="relative w-full min-h-full"><!-- Navigation -->
+   <nav class="sticky top-0 z-50 glass-effect border-b border-violet-100">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+       <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+       </div><span class="font-elegant text-xl font-semibold text-slate-700">Relaksasi Pre-Op</span>
+      </div>
+      <div class="flex gap-8"><button onclick="showSection('beranda')" class="nav-link text-slate-600 hover:text-violet-600 font-medium active" id="nav-beranda">Beranda</button> <button onclick="showSection('breathing')" class="nav-link text-slate-600 hover:text-violet-600 font-medium" id="nav-breathing">Box Breathing</button> <button onclick="showSection('finger')" class="nav-link text-slate-600 hover:text-violet-600 font-medium" id="nav-finger">Finger Grip</button> <button onclick="showSection('kombinasi')" class="nav-link text-slate-600 hover:text-violet-600 font-medium" id="nav-kombinasi">Latihan</button>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Main Content -->
+   <main class="max-w-6xl mx-auto px-6 py-8"><!-- Beranda Section -->
+    <section id="beranda" class="section-transition section-visible"><!-- Hero -->
+     <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-violet-100 text-violet-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+       <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+       </svg> Edukasi Pasien Pre-Operatif
+      </div>
+      <h1 id="main-title" class="font-elegant text-5xl md:text-6xl font-bold gradient-text mb-6">Teknik Relaksasi Pre-Operatif</h1>
+      <p id="subtitle" class="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">Persiapkan diri Anda dengan tenang sebelum operasi melalui teknik pernapasan dan relaksasi yang terbukti efektif</p>
+     </div><!-- Cards -->
+     <div class="grid md:grid-cols-2 gap-8 mb-16"><!-- Box Breathing Card -->
+      <div class="card-hover bg-white rounded-3xl p-8 shadow-xl border border-violet-100">
+       <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg float-animation">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+       </div>
+       <h3 id="breathing-title" class="font-elegant text-2xl font-bold text-slate-800 mb-4">Box Breathing</h3>
+       <p class="text-slate-600 mb-6 leading-relaxed">Teknik pernapasan kotak (4-4-4-4) yang digunakan oleh Navy SEALs dan profesional medis untuk menenangkan sistem saraf dan mengurangi kecemasan.</p>
+       <div class="space-y-3">
+        <div class="flex items-center gap-3 text-slate-700">
+         <div class="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center text-violet-600 font-bold text-sm">
+          4s
+         </div><span>Tarik napas dalam</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700">
+         <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 font-bold text-sm">
+          4s
+         </div><span>Tahan napas</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700">
+         <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 font-bold text-sm">
+          4s
+         </div><span>Hembuskan perlahan</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700">
+         <div class="w-8 h-8 bg-fuchsia-100 rounded-lg flex items-center justify-center text-fuchsia-600 font-bold text-sm">
+          4s
+         </div><span>Tahan sebelum mengulang</span>
+        </div>
+       </div>
+      </div><!-- Finger Grip Card -->
+      <div class="card-hover bg-white rounded-3xl p-8 shadow-xl border border-violet-100">
+       <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg float-animation" style="animation-delay: 1s;">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+        </svg>
+       </div>
+       <h3 id="finger-title" class="font-elegant text-2xl font-bold text-slate-800 mb-4">Finger Grip Relaxation</h3>
+       <p class="text-slate-600 mb-6 leading-relaxed">Teknik menggenggam jari yang merangsang titik-titik akupresur untuk melepaskan ketegangan dan emosi negatif dari tubuh.</p>
+       <div class="space-y-3">
+        <div class="flex items-center gap-3 text-slate-700"><span class="text-2xl">👍</span> <span><strong>Ibu Jari:</strong> Mengatasi kekhawatiran</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700"><span class="text-2xl">👆</span> <span><strong>Telunjuk:</strong> Meredakan ketakutan</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700"><span class="text-2xl">🖕</span> <span><strong>Jari Tengah:</strong> Mengelola amarah</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700"><span class="text-2xl">💍</span> <span><strong>Jari Manis:</strong> Mengurangi kesedihan</span>
+        </div>
+        <div class="flex items-center gap-3 text-slate-700"><span class="text-2xl">🤙</span> <span><strong>Kelingking:</strong> Meningkatkan kepercayaan diri</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Benefits -->
+     <div class="bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 rounded-3xl p-10 text-white shadow-2xl">
+      <h2 class="font-elegant text-3xl font-bold text-center mb-8">Manfaat untuk Pasien Pre-Operatif</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+       <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+        <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+        <h4 class="font-semibold text-lg mb-2">Menurunkan Kecemasan</h4>
+        <p class="text-white/80 text-sm">Mengurangi tingkat stres dan ketegangan sebelum prosedur medis</p>
+       </div>
+       <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+        <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+         </svg>
+        </div>
+        <h4 class="font-semibold text-lg mb-2">Stabilkan Detak Jantung</h4>
+        <p class="text-white/80 text-sm">Menstabilkan tekanan darah dan detak jantung secara alami</p>
+       </div>
+       <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+        <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+        <h4 class="font-semibold text-lg mb-2">Meningkatkan Ketenangan</h4>
+        <p class="text-white/80 text-sm">Menciptakan perasaan tenang dan siap menghadapi operasi</p>
+       </div>
+      </div>
+     </div><!-- CTA -->
+     <div class="text-center mt-12"><button onclick="showSection('kombinasi')" class="inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105"> <span>Mulai Latihan Sekarang</span>
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></button>
+     </div>
+    </section><!-- Box Breathing Detail Section -->
+    <section id="breathing" class="section-transition hidden">
+     <div class="text-center mb-12">
+      <h2 class="font-elegant text-4xl font-bold gradient-text mb-4">Box Breathing</h2>
+      <p class="text-slate-600 text-lg max-w-2xl mx-auto">Pelajari teknik pernapasan kotak untuk menenangkan pikiran dan tubuh Anda</p>
+     </div>
+     <div class="bg-white rounded-3xl p-10 shadow-xl border border-violet-100 mb-8">
+      <h3 class="font-elegant text-2xl font-bold text-slate-800 mb-6 text-center">Cara Melakukan Box Breathing</h3>
+      <div class="grid md:grid-cols-4 gap-6 mb-10">
+       <div class="text-center">
+        <div class="w-20 h-20 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><span class="text-white text-2xl font-bold">1</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Tarik Napas</h4>
+        <p class="text-slate-600 text-sm">Tarik napas perlahan melalui hidung selama 4 detik</p>
+       </div>
+       <div class="text-center">
+        <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><span class="text-white text-2xl font-bold">2</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Tahan</h4>
+        <p class="text-slate-600 text-sm">Tahan napas dengan nyaman selama 4 detik</p>
+       </div>
+       <div class="text-center">
+        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-fuchsia-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><span class="text-white text-2xl font-bold">3</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Hembuskan</h4>
+        <p class="text-slate-600 text-sm">Hembuskan napas perlahan melalui mulut selama 4 detik</p>
+       </div>
+       <div class="text-center">
+        <div class="w-20 h-20 bg-gradient-to-br from-fuchsia-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"><span class="text-white text-2xl font-bold">4</span>
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Tahan Lagi</h4>
+        <p class="text-slate-600 text-sm">Tahan napas kosong selama 4 detik sebelum mengulang</p>
+       </div>
+      </div>
+      <div class="bg-gradient-to-r from-violet-50 to-indigo-50 rounded-2xl p-6">
+       <h4 class="font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-violet-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg> Tips Penting</h4>
+       <ul class="space-y-2 text-slate-600">
+        <li class="flex items-start gap-2"><span class="text-violet-500 mt-1">•</span> Duduk atau berbaring dalam posisi nyaman</li>
+        <li class="flex items-start gap-2"><span class="text-violet-500 mt-1">•</span> Tutup mata untuk meningkatkan fokus</li>
+        <li class="flex items-start gap-2"><span class="text-violet-500 mt-1">•</span> Jangan memaksakan diri, jika 4 detik terlalu lama, mulai dengan 3 detik</li>
+        <li class="flex items-start gap-2"><span class="text-violet-500 mt-1">•</span> Lakukan 4-6 siklus untuk hasil optimal</li>
+       </ul>
+      </div>
+     </div>
+     <div class="text-center"><button onclick="showSection('kombinasi')" class="inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"> <span>Coba Latihan Interaktif</span>
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></button>
+     </div>
+    </section><!-- Finger Grip Detail Section -->
+    <section id="finger" class="section-transition hidden">
+     <div class="text-center mb-12">
+      <h2 class="font-elegant text-4xl font-bold gradient-text mb-4">Finger Grip Relaxation</h2>
+      <p class="text-slate-600 text-lg max-w-2xl mx-auto">Teknik menggenggam jari untuk melepaskan emosi dan ketegangan</p>
+     </div>
+     <div class="bg-white rounded-3xl p-10 shadow-xl border border-violet-100 mb-8">
+      <div class="grid md:grid-cols-5 gap-4 mb-10">
+       <div class="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-5 text-center border border-rose-100">
+        <div class="text-5xl mb-3">
+         👍
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Ibu Jari</h4>
+        <p class="text-slate-600 text-sm">Mengatasi kekhawatiran &amp; overthinking</p>
+        <div class="mt-3 text-xs text-rose-600 font-medium">
+         Genggam 16 detik
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-5 text-center border border-orange-100">
+        <div class="text-5xl mb-3">
+         👆
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Telunjuk</h4>
+        <p class="text-slate-600 text-sm">Meredakan ketakutan &amp; kecemasan</p>
+        <div class="mt-3 text-xs text-orange-600 font-medium">
+         Genggam 16 detik
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-5 text-center border border-violet-100">
+        <div class="text-5xl mb-3">
+         🖕
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Jari Tengah</h4>
+        <p class="text-slate-600 text-sm">Mengelola amarah &amp; frustrasi</p>
+        <div class="mt-3 text-xs text-violet-600 font-medium">
+         Genggam 16 detik
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 text-center border border-blue-100">
+        <div class="text-5xl mb-3">
+         💍
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Jari Manis</h4>
+        <p class="text-slate-600 text-sm">Mengurangi kesedihan &amp; depresi</p>
+        <div class="mt-3 text-xs text-blue-600 font-medium">
+         Genggam 16 detik
+        </div>
+       </div>
+       <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-5 text-center border border-teal-100">
+        <div class="text-5xl mb-3">
+         🤙
+        </div>
+        <h4 class="font-semibold text-slate-800 mb-2">Kelingking</h4>
+        <p class="text-slate-600 text-sm">Meningkatkan percaya diri &amp; harga diri</p>
+        <div class="mt-3 text-xs text-teal-600 font-medium">
+         Genggam 16 detik
+        </div>
+       </div>
+      </div>
+      <div class="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-2xl p-6">
+       <h4 class="font-semibold text-slate-800 mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-indigo-600" fill="currentColor" viewbox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+        </svg> Cara Melakukan</h4>
+       <ol class="space-y-2 text-slate-600 list-decimal list-inside">
+        <li>Gunakan tangan yang satu untuk menggenggam jari tangan yang lain</li>
+        <li>Genggam dengan lembut tapi mantap, tidak perlu keras</li>
+        <li>Sambil menggenggam, tarik napas dalam dan hembuskan perlahan</li>
+        <li>Rasakan kehangatan dan denyut di jari yang digenggam</li>
+        <li>Tahan selama 16 detik atau sampai merasa lebih tenang</li>
+        <li>Ulangi pada jari lainnya sesuai kebutuhan</li>
+       </ol>
+      </div>
+     </div>
+     <div class="text-center"><button onclick="showSection('kombinasi')" class="inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"> <span>Coba Latihan Interaktif</span>
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></button>
+     </div>
+    </section><!-- Combined Exercise Section -->
+    <section id="kombinasi" class="section-transition hidden">
+     <div class="text-center mb-10">
+      <h2 class="font-elegant text-4xl font-bold gradient-text mb-4">Latihan Kombinasi</h2>
+      <p class="text-slate-600 text-lg max-w-2xl mx-auto">Gabungkan Box Breathing dengan Finger Grip untuk relaksasi maksimal</p>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-8"><!-- Breathing Exercise -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl border border-violet-100">
+       <h3 class="font-elegant text-2xl font-bold text-slate-800 mb-6 text-center">Box Breathing</h3><!-- Breathing Circle Animation -->
+       <div class="relative flex flex-col items-center justify-center mb-8">
+        <div class="relative w-64 h-64"><!-- Progress Ring -->
+         <svg class="absolute inset-0 w-full h-full -rotate-90"><circle cx="128" cy="128" r="120" fill="none" stroke="#E5E7EB" stroke-width="8" /> <circle id="progress-ring" class="progress-ring" cx="128" cy="128" r="120" fill="none" stroke="url(#gradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="754" stroke-dashoffset="754" /> <defs>
+           <lineargradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8B5CF6" />
+            <stop offset="100%" stop-color="#6366F1" />
+           </lineargradient>
+          </defs>
+         </svg><!-- Breathing Circle -->
+         <div class="absolute inset-0 flex items-center justify-center">
+          <div id="breathing-circle" class="breathing-circle w-40 h-40 bg-gradient-to-br from-violet-400 to-indigo-500 rounded-full flex flex-col items-center justify-center shadow-2xl"><span id="breathing-instruction" class="text-white font-bold text-lg">Siap?</span> <span id="breathing-timer" class="text-white/80 text-4xl font-bold">4</span>
+          </div>
+         </div>
+        </div><!-- Cycle Counter -->
+        <div class="mt-4 text-center"><span class="text-slate-500">Siklus:</span> <span id="cycle-counter" class="text-violet-600 font-bold ml-1">0 / 30</span>
+        </div>
+       </div><!-- Breathing Controls -->
+       <div class="flex justify-center gap-4"><button id="start-breathing" onclick="startBreathing()" class="flex items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+         </svg><span>Mulai</span> </button> <button id="stop-breathing" onclick="stopBreathing()" class="flex items-center gap-2 bg-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:bg-slate-300 transition-all" disabled>
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z" clip-rule="evenodd" />
+         </svg><span>Stop</span> </button>
+       </div>
+      </div><!-- Finger Grip Exercise -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl border border-violet-100">
+       <h3 class="font-elegant text-2xl font-bold text-slate-800 mb-6 text-center">Finger Grip Relaxation</h3><!-- Hand SVG -->
+       <div class="relative flex justify-center mb-8">
+        <svg id="hand-svg" viewbox="0 0 200 280" class="w-56 h-72"><!-- Palm --> <ellipse cx="100" cy="200" rx="60" ry="70" fill="#FDDEC0" stroke="#E5C9AE" stroke-width="2" /> <!-- Thumb --> <g id="finger-thumb" class="cursor-pointer transition-all duration-300" onclick="selectFinger('thumb')">
+          <path d="M45 180 Q20 160 25 130 Q30 100 50 95 Q70 90 75 110 Q80 130 65 160 Q55 175 50 185" fill="#FDDEC0" stroke="#E5C9AE" stroke-width="2" />
+          <circle cx="40" cy="115" r="12" fill="#FFF" fill-opacity="0.3" />
+         </g> <!-- Index Finger --> <g id="finger-index" class="cursor-pointer transition-all duration-300" onclick="selectFinger('index')">
+          <path d="M60 145 Q55 100 60 50 Q65 20 80 20 Q95 20 100 50 Q105 100 100 145" fill="#FDDEC0" stroke="#E5C9AE" stroke-width="2" />
+          <circle cx="80" cy="40" r="10" fill="#FFF" fill-opacity="0.3" />
+         </g> <!-- Middle Finger --> <g id="finger-middle" class="cursor-pointer transition-all duration-300" onclick="selectFinger('middle')">
+          <path d="M90 145 Q85 90 90 30 Q95 0 110 0 Q125 0 130 30 Q135 90 130 145" fill="#FDDEC0" stroke="#E5C9AE" stroke-width="2" />
+          <circle cx="110" cy="25" r="10" fill="#FFF" fill-opacity="0.3" />
+         </g> <!-- Ring Finger --> <g id="finger-ring" class="cursor-pointer transition-all duration-300" onclick="selectFinger('ring')">
+          <path d="M120 145 Q115 95 120 45 Q125 15 140 15 Q155 15 160 45 Q165 95 160 145" fill="#FDDEC0" stroke="#E5C9AE" stroke-width="2" />
+          <circle cx="140" cy="35" r="10" fill="#FFF" fill-opacity="0.3" />
+         </g> <!-- Pinky --> <g id="finger-pinky" class="cursor-pointer transition-all duration-300" onclick="selectFinger('pinky')">
+          <path d="M150 150 Q150 110 155 70 Q160 45 172 45 Q185 45 188 70 Q192 110 190 150" fill="#FDDEC0" stroke="#E5C9AE" stroke-width="2" />
+          <circle cx="172" cy="60" r="8" fill="#FFF" fill-opacity="0.3" />
+         </g>
+        </svg>
+       </div><!-- Finger Info -->
+       <div id="finger-info" class="text-center mb-6 min-h-[80px]">
+        <p class="text-slate-500">Klik jari untuk memulai latihan</p>
+       </div><!-- Finger Buttons -->
+       <div class="flex flex-wrap justify-center gap-2"><button onclick="selectFinger('thumb_right')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-rose-100 text-rose-700 hover:bg-rose-200" id="btn-thumb_right">👍 Ibu Jari Kanan</button> <button onclick="selectFinger('index_right')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-orange-100 text-orange-700 hover:bg-orange-200" id="btn-index_right">👆 Telunjuk Kanan</button> <button onclick="selectFinger('middle_right')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-violet-100 text-violet-700 hover:bg-violet-200" id="btn-middle_right">🖕 Tengah Kanan</button> <button onclick="selectFinger('ring_right')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-blue-100 text-blue-700 hover:bg-blue-200" id="btn-ring_right">💍 Manis Kanan</button> <button onclick="selectFinger('pinky_right')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-teal-100 text-teal-700 hover:bg-teal-200" id="btn-pinky_right">🤙 Kelingking Kanan</button> <button onclick="selectFinger('thumb_left')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-rose-100 text-rose-700 hover:bg-rose-200" id="btn-thumb_left">👍 Ibu Jari Kiri</button> <button onclick="selectFinger('index_left')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-orange-100 text-orange-700 hover:bg-orange-200" id="btn-index_left">👆 Telunjuk Kiri</button> <button onclick="selectFinger('middle_left')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-violet-100 text-violet-700 hover:bg-violet-200" id="btn-middle_left">🖕 Tengah Kiri</button> <button onclick="selectFinger('ring_left')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-blue-100 text-blue-700 hover:bg-blue-200" id="btn-ring_left">💍 Manis Kiri</button> <button onclick="selectFinger('pinky_left')" class="finger-btn px-3 py-2 rounded-lg text-xs font-medium bg-teal-100 text-teal-700 hover:bg-teal-200" id="btn-pinky_left">🤙 Kelingking Kiri</button>
+       </div><!-- Hold Timer -->
+       <div id="finger-timer-container" class="hidden mt-6">
+        <div class="bg-gradient-to-r from-violet-50 to-indigo-50 rounded-2xl p-4 text-center">
+         <p class="text-slate-600 mb-2">Tahan selama:</p>
+         <div class="text-4xl font-bold text-violet-600" id="finger-timer">
+          16
+         </div>
+         <p class="text-slate-500 text-sm mt-1">detik</p>
+         <div class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div id="finger-progress" class="h-full bg-gradient-to-r from-violet-500 to-indigo-500 transition-all duration-1000" style="width: 100%"></div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Combined Instructions -->
+     <div class="mt-8 bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 rounded-3xl p-8 text-white shadow-2xl">
+      <h3 class="font-elegant text-2xl font-bold text-center mb-6">Tips Latihan Kombinasi</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+       <div class="bg-white/10 backdrop-blur rounded-xl p-5">
+        <div class="flex items-start gap-3">
+         <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><span class="font-bold">1</span>
+         </div>
+         <div>
+          <h4 class="font-semibold mb-1">Mulai dengan Box Breathing</h4>
+          <p class="text-white/80 text-sm">Lakukan 30 siklus penuh pernapasan untuk menenangkan pikiran </p>
+         </div>
+        </div>
+       </div>
+       <div class="bg-white/10 backdrop-blur rounded-xl p-5">
+        <div class="flex items-start gap-3">
+         <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><span class="font-bold">2</span>
+         </div>
+         <div>
+          <h4 class="font-semibold mb-1">Pilih Jari berurut</h4>
+          <p class="text-white/80 text-sm">Identifikasi emosi yang paling dominan dan pilih jari sesuai urutan</p>
+         </div>
+        </div>
+       </div>
+       <div class="bg-white/10 backdrop-blur rounded-xl p-5">
+        <div class="flex items-start gap-3">
+         <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><span class="font-bold">3</span>
+         </div>
+         <div>
+          <h4 class="font-semibold mb-1">Kombinasikan Keduanya</h4>
+          <p class="text-white/80 text-sm">Genggam jari sambil melakukan box breathing untuk efek ganda</p>
+         </div>
+        </div>
+       </div>
+       <div class="bg-white/10 backdrop-blur rounded-xl p-5">
+        <div class="flex items-start gap-3">
+         <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"><span class="font-bold">4</span>
+         </div>
+         <div>
+          <h4 class="font-semibold mb-1">Lakukan selama 6 Menit</h4>
+          <p class="text-white/80 text-sm">Idealnya lakukan 1 jam sebelum waktu operasi yang dijadwalkan</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="mt-12 py-8 border-t border-violet-100 bg-white/50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+     <p class="text-slate-500 text-sm">💜 Dibuat untuk membantu pasien menghadapi operasi dengan lebih tenang</p>
+     <p class="text-slate-400 text-xs mt-2">Konsultasikan dengan tenaga medis Anda sebelum melakukan teknik relaksasi</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      main_title: 'Teknik Relaksasi Pre-Operatif',
+      subtitle: 'Persiapkan diri Anda dengan tenang sebelum operasi melalui teknik pernapasan dan relaksasi yang terbukti efektif',
+      breathing_title: 'Box Breathing',
+      finger_title: 'Finger Grip Relaxation',
+      background_color: '#f8fafc',
+      surface_color: '#ffffff',
+      text_color: '#334155',
+      primary_action_color: '#7c3aed',
+      secondary_action_color: '#6366f1'
+    };
+
+    let config = { ...defaultConfig };
+
+    // Breathing exercise state
+    let breathingInterval = null;
+    let breathingTimeout = null;
+    let currentPhase = 0;
+    let currentCycle = 0;
+    let timerValue = 4;
+    const totalCycles = 30;
+    const phases = ['Tarik Napas', 'Tahan', 'Hembuskan', 'Tahan'];
+    const phaseClasses = ['breathing-inhale', 'breathing-hold-in', 'breathing-exhale', 'breathing-hold-out'];
+
+    // Finger exercise state
+    let fingerInterval = null;
+    let fingerCycleTimeout = null;
+    let selectedFinger = null;
+    let currentFingerIndex = 0;
+    const totalFingers = 10;
+    const fingerData = {
+      thumb_right: { name: 'Ibu Jari Kanan', emoji: '👍', emotion: 'Kekhawatiran & Overthinking', color: 'rose' },
+      index_right: { name: 'Telunjuk Kanan', emoji: '👆', emotion: 'Ketakutan & Kecemasan', color: 'orange' },
+      middle_right: { name: 'Jari Tengah Kanan', emoji: '🖕', emotion: 'Amarah & Frustrasi', color: 'violet' },
+      ring_right: { name: 'Jari Manis Kanan', emoji: '💍', emotion: 'Kesedihan & Depresi', color: 'blue' },
+      pinky_right: { name: 'Kelingking Kanan', emoji: '🤙', emotion: 'Kurang Percaya Diri', color: 'teal' },
+      thumb_left: { name: 'Ibu Jari Kiri', emoji: '👍', emotion: 'Kekhawatiran & Overthinking', color: 'rose' },
+      index_left: { name: 'Telunjuk Kiri', emoji: '👆', emotion: 'Ketakutan & Kecemasan', color: 'orange' },
+      middle_left: { name: 'Jari Tengah Kiri', emoji: '🖕', emotion: 'Amarah & Frustrasi', color: 'violet' },
+      ring_left: { name: 'Jari Manis Kiri', emoji: '💍', emotion: 'Kesedihan & Depresi', color: 'blue' },
+      pinky_left: { name: 'Kelingking Kiri', emoji: '🤙', emotion: 'Kurang Percaya Diri', color: 'teal' }
+    };
+
+    // Navigation
+    function showSection(sectionId) {
+      const sections = ['beranda', 'breathing', 'finger', 'kombinasi'];
+      const navLinks = ['nav-beranda', 'nav-breathing', 'nav-finger', 'nav-kombinasi'];
+      
+      sections.forEach((id, index) => {
+        const section = document.getElementById(id);
+        const navLink = document.getElementById(navLinks[index]);
+        
+        if (id === sectionId) {
+          section.classList.remove('hidden');
+          setTimeout(() => section.classList.add('section-visible'), 50);
+          navLink.classList.add('active');
+        } else {
+          section.classList.add('hidden');
+          section.classList.remove('section-visible');
+          navLink.classList.remove('active');
+        }
+      });
+
+      // Stop any running exercises when switching sections
+      if (sectionId !== 'kombinasi') {
+        stopBreathing();
+        stopFingerTimer();
+      }
+    }
+
+    // Breathing Exercise Functions
+    function startBreathing() {
+      if (breathingInterval) return;
+      
+      const startBtn = document.getElementById('start-breathing');
+      const stopBtn = document.getElementById('stop-breathing');
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+      
+      currentPhase = 0;
+      currentCycle = 0;
+      currentFingerIndex = 0;
+      timerValue = 4;
+      
+      updateBreathingUI();
+      runBreathingPhase();
+      
+      // Start automatic finger cycling
+      startAutoFingerCycle();
+    }
+
+    function runBreathingPhase() {
+      const circle = document.getElementById('breathing-circle');
+      const instruction = document.getElementById('breathing-instruction');
+      const timer = document.getElementById('breathing-timer');
+      const progressRing = document.getElementById('progress-ring');
+      const cycleCounter = document.getElementById('cycle-counter');
+      
+      // Remove all animation classes
+      circle.classList.remove(...phaseClasses);
+      
+      // Add current phase animation
+      circle.classList.add(phaseClasses[currentPhase]);
+      instruction.textContent = phases[currentPhase];
+      
+      timerValue = 4;
+      timer.textContent = timerValue;
+      
+      // Update progress ring
+      const circumference = 754;
+      const progress = ((currentCycle * 4 + currentPhase + 1) / (totalCycles * 4)) * circumference;
+      progressRing.style.strokeDashoffset = circumference - progress;
+      
+      breathingInterval = setInterval(() => {
+        timerValue--;
+        timer.textContent = timerValue;
+        
+        if (timerValue <= 0) {
+          clearInterval(breathingInterval);
+          breathingInterval = null;
+          
+          currentPhase++;
+          if (currentPhase >= 4) {
+            currentPhase = 0;
+            currentCycle++;
+            cycleCounter.textContent = `${currentCycle} / ${totalCycles}`;
+            
+            if (currentCycle >= totalCycles) {
+              completeBreathing();
+              return;
+            }
+          }
+          
+          breathingTimeout = setTimeout(runBreathingPhase, 300);
+        }
+      }, 1000);
+    }
+
+    function stopBreathing() {
+      if (breathingInterval) {
+        clearInterval(breathingInterval);
+        breathingInterval = null;
+      }
+      if (breathingTimeout) {
+        clearTimeout(breathingTimeout);
+        breathingTimeout = null;
+      }
+      if (fingerCycleTimeout) {
+        clearTimeout(fingerCycleTimeout);
+        fingerCycleTimeout = null;
+      }
+      if (fingerInterval) {
+        clearInterval(fingerInterval);
+        fingerInterval = null;
+      }
+      
+      stopFingerTimer();
+      resetBreathingUI();
+    }
+
+    function completeBreathing() {
+      const instruction = document.getElementById('breathing-instruction');
+      const timer = document.getElementById('breathing-timer');
+      const circle = document.getElementById('breathing-circle');
+      
+      circle.classList.remove(...phaseClasses);
+      instruction.textContent = 'Selesai! 🎉';
+      timer.textContent = '✓';
+      
+      setTimeout(resetBreathingUI, 3000);
+    }
+
+    function resetBreathingUI() {
+      const startBtn = document.getElementById('start-breathing');
+      const stopBtn = document.getElementById('stop-breathing');
+      const instruction = document.getElementById('breathing-instruction');
+      const timer = document.getElementById('breathing-timer');
+      const circle = document.getElementById('breathing-circle');
+      const progressRing = document.getElementById('progress-ring');
+      const cycleCounter = document.getElementById('cycle-counter');
+      
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+      instruction.textContent = 'Siap?';
+      timer.textContent = '4';
+      circle.classList.remove(...phaseClasses);
+      progressRing.style.strokeDashoffset = 754;
+      cycleCounter.textContent = '0 / 30';
+      currentPhase = 0;
+      currentCycle = 0;
+    }
+
+    function updateBreathingUI() {
+      document.getElementById('cycle-counter').textContent = `${currentCycle} / ${totalCycles}`;
+    }
+
+    // Automatic Finger Cycling
+    function startAutoFingerCycle() {
+      const fingerKeys = ['thumb_right', 'index_right', 'middle_right', 'ring_right', 'pinky_right', 'thumb_left', 'index_left', 'middle_left', 'ring_left', 'pinky_left'];
+      
+      function cycleToNextFinger() {
+        if (currentFingerIndex < fingerKeys.length) {
+          selectFingerAuto(fingerKeys[currentFingerIndex]);
+          currentFingerIndex++;
+          
+          // Schedule next finger after 16 seconds
+          fingerCycleTimeout = setTimeout(cycleToNextFinger, 16000);
+        }
+      }
+      
+      // Start the finger cycling
+      cycleToNextFinger();
+    }
+
+    function selectFingerAuto(finger) {
+      selectedFinger = finger;
+      
+      // Update SVG highlighting
+      const fingers = ['thumb_right', 'index_right', 'middle_right', 'ring_right', 'pinky_right', 'thumb_left', 'index_left', 'middle_left', 'ring_left', 'pinky_left'];
+      fingers.forEach(f => {
+        const element = document.getElementById(`finger-${f}`);
+        if (element) {
+          if (f === finger) {
+            element.classList.add('finger-active');
+          } else {
+            element.classList.remove('finger-active');
+          }
+        }
+      });
+      
+      // Update button states
+      fingers.forEach(f => {
+        const btn = document.getElementById(`btn-${f}`);
+        if (btn) {
+          if (f === finger) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        }
+      });
+      
+      // Update info
+      const data = fingerData[finger];
+      const infoDiv = document.getElementById('finger-info');
+      infoDiv.innerHTML = `
+        <div class="text-3xl mb-2">${data.emoji}</div>
+        <h4 class="font-semibold text-slate-800 text-lg">${data.name}</h4>
+        <p class="text-slate-600">Membantu mengatasi: <span class="text-${data.color}-600 font-medium">${data.emotion}</span></p>
+        <p class="text-green-600 font-medium mt-2 text-sm">Menjalankan otomatis...</p>
+      `;
+      
+      // Start timer
+      startAutoFingerTimer();
+    }
+
+    function startAutoFingerTimer() {
+      const timerContainer = document.getElementById('finger-timer-container');
+      const timerDisplay = document.getElementById('finger-timer');
+      const progressBar = document.getElementById('finger-progress');
+      
+      timerContainer.classList.remove('hidden');
+      
+      let seconds = 16;
+      timerDisplay.textContent = seconds;
+      progressBar.style.width = '100%';
+      
+      // Clear existing interval if any
+      if (fingerInterval) {
+        clearInterval(fingerInterval);
+      }
+      
+      fingerInterval = setInterval(() => {
+        seconds--;
+        timerDisplay.textContent = seconds;
+        progressBar.style.width = `${(seconds / 16) * 100}%`;
+        
+        if (seconds <= 0) {
+          clearInterval(fingerInterval);
+          fingerInterval = null;
+        }
+      }, 1000);
+    }
+
+    function updateBreathingUI() {
+      document.getElementById('cycle-counter').textContent = `${currentCycle} / ${totalCycles}`;
+    }
+
+    // Finger Grip Functions
+    function selectFinger(finger) {
+      stopFingerTimer();
+      selectedFinger = finger;
+      
+      // Update SVG highlighting
+      const fingers = ['thumb_right', 'index_right', 'middle_right', 'ring_right', 'pinky_right', 'thumb_left', 'index_left', 'middle_left', 'ring_left', 'pinky_left'];
+      fingers.forEach(f => {
+        const element = document.getElementById(`finger-${f}`);
+        if (element) {
+          if (f === finger) {
+            element.classList.add('finger-active');
+          } else {
+            element.classList.remove('finger-active');
+          }
+        }
+      });
+      
+      // Update button states
+      fingers.forEach(f => {
+        const btn = document.getElementById(`btn-${f}`);
+        if (btn) {
+          if (f === finger) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        }
+      });
+      
+      // Update info
+      const data = fingerData[finger];
+      const infoDiv = document.getElementById('finger-info');
+      infoDiv.innerHTML = `
+        <div class="text-3xl mb-2">${data.emoji}</div>
+        <h4 class="font-semibold text-slate-800 text-lg">${data.name}</h4>
+        <p class="text-slate-600">Membantu mengatasi: <span class="text-${data.color}-600 font-medium">${data.emotion}</span></p>
+      `;
+      
+      // Start timer
+      startFingerTimer();
+    }
+
+    function startFingerTimer() {
+      const timerContainer = document.getElementById('finger-timer-container');
+      const timerDisplay = document.getElementById('finger-timer');
+      const progressBar = document.getElementById('finger-progress');
+      
+      timerContainer.classList.remove('hidden');
+      
+      let seconds = 16;
+      timerDisplay.textContent = seconds;
+      progressBar.style.width = '100%';
+      
+      fingerInterval = setInterval(() => {
+        seconds--;
+        timerDisplay.textContent = seconds;
+        progressBar.style.width = `${(seconds / 16) * 100}%`;
+        
+        if (seconds <= 0) {
+          clearInterval(fingerInterval);
+          fingerInterval = null;
+          timerDisplay.textContent = '✓';
+          
+          setTimeout(() => {
+            const infoDiv = document.getElementById('finger-info');
+            infoDiv.innerHTML += `<p class="text-green-600 font-medium mt-2">Bagus! Anda bisa melanjutkan ke jari lain atau ulangi.</p>`;
+          }, 500);
+        }
+      }, 1000);
+    }
+
+    function stopFingerTimer() {
+      if (fingerInterval) {
+        clearInterval(fingerInterval);
+        fingerInterval = null;
+      }
+      
+      // Reset finger selection visual
+      const fingers = ['thumb_right', 'index_right', 'middle_right', 'ring_right', 'pinky_right', 'thumb_left', 'index_left', 'middle_left', 'ring_left', 'pinky_left'];
+      fingers.forEach(f => {
+        const element = document.getElementById(`finger-${f}`);
+        if (element) element.classList.remove('finger-active');
+        const btn = document.getElementById(`btn-${f}`);
+        if (btn) btn.classList.remove('active');
+      });
+    }
+
+    // Element SDK Integration
+    async function onConfigChange(newConfig) {
+      config = { ...defaultConfig, ...newConfig };
+      
+      // Update text content
+      const mainTitle = document.getElementById('main-title');
+      if (mainTitle) mainTitle.textContent = config.main_title || defaultConfig.main_title;
+      
+      const subtitle = document.getElementById('subtitle');
+      if (subtitle) subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+      
+      const breathingTitle = document.getElementById('breathing-title');
+      if (breathingTitle) breathingTitle.textContent = config.breathing_title || defaultConfig.breathing_title;
+      
+      const fingerTitle = document.getElementById('finger-title');
+      if (fingerTitle) fingerTitle.textContent = config.finger_title || defaultConfig.finger_title;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || 'Nunito',
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || 16,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['main_title', config.main_title || defaultConfig.main_title],
+        ['subtitle', config.subtitle || defaultConfig.subtitle],
+        ['breathing_title', config.breathing_title || defaultConfig.breathing_title],
+        ['finger_title', config.finger_title || defaultConfig.finger_title]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cabfc11444816ec',t:'MTc3MDU2MjcwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
