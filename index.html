@@ -796,7 +796,7 @@
       
       timerContainer.classList.remove('hidden');
       
-      let seconds = 16;
+      let seconds = 48;
       timerDisplay.textContent = seconds;
       progressBar.style.width = '100%';
       
@@ -808,7 +808,7 @@
       fingerInterval = setInterval(() => {
         seconds--;
         timerDisplay.textContent = seconds;
-        progressBar.style.width = `${(seconds / 16) * 100}%`;
+        progressBar.style.width = `${(seconds / 48) * 100}%`;
         
         if (seconds <= 0) {
           clearInterval(fingerInterval);
@@ -871,14 +871,14 @@
       
       timerContainer.classList.remove('hidden');
       
-      let seconds = 16;
+      let seconds = 48;
       timerDisplay.textContent = seconds;
       progressBar.style.width = '100%';
       
       fingerInterval = setInterval(() => {
         seconds--;
         timerDisplay.textContent = seconds;
-        progressBar.style.width = `${(seconds / 16) * 100}%`;
+        progressBar.style.width = `${(seconds / 48) * 100}%`;
         
         if (seconds <= 0) {
           clearInterval(fingerInterval);
@@ -1006,6 +1006,7 @@
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cabfc11444816ec',t:'MTc3MDU2MjcwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
+
 
 
 
